@@ -3,6 +3,7 @@ var Metalsmith = require('metalsmith')
 
 // plugins
 var markdown = require('metalsmith-markdown')
+var ignore = require('metalsmith-ignore')
 var assets = require('metalsmith-assets')
 var layouts = require('metalsmith-layouts')
 var partial = require('metalsmith-partial')
@@ -44,14 +45,16 @@ function sections () {
 module.exports = function (locations) {
   locations = locations || {}
   locations.base = locations.base || __dirname
-  locations.source = locations.source || '../content/'
-  locations.destination = locations.destination || '../build/'
+  locations.source = locations.source || '../content/paginas'
+  locations.destination = locations.destination || '../site/'
 
   return Metalsmith(locations.base)
+  .clean(false)
   .source(locations.source)
   .destination(locations.destination)
-  .concurrency(100)
+  .concurrency(1000)
   .metadata(META)
+  .use(ignore(['.DS_Store']))
   .use(includes({ prefix: '!! incluye' }))
   .use(sections())
   .use(markdown())

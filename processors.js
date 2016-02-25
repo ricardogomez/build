@@ -1,14 +1,8 @@
 // PROCESSORS: the view directives (see plugins/directives)
-var shell = require('shelljs')
 
 module.exports = {
   // IMAGEN path posición: cen | izq | der texto: cosas
   imagen: function (dir, h) {
-    var src = 'images/' + dir.value
-    var dest = 'content/' + dir.value.substring(0, dir.value.lastIndexOf('/') + 1)
-    //console.log(src, ' || ', dest)
-    //shell.cp(src, dest)
-
     var url = '/imagenes/' + dir.value
     var texto = dir.options['texto'] || ''
     var pos = dir.options['pos'] || dir.options['posicion'] || 'izq'

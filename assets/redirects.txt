@@ -1,5 +1,5 @@
 "/inicio":
-"/ver/inicio": 
+"/ver/inicio":
 "/ver/mislibros/edelvives/Diario": mislibros/edelvives/diario
 "/ver/mislibros": mislibros
 "/ver/mislibros/alfaguara/Bruno": mislibros/alfaguara/bruno
