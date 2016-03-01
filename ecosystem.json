@@ -1,8 +1,8 @@
 {
   "apps": [
     {
-      "name" : "rg-server",
-      "script" : "server/server.js",
+      "name" : "rgserver",
+      "script" : "server.js",
       "env" : {
       },
       "env_production" : {
@@ -15,9 +15,9 @@
       "user" : "deployer",
       "host" : "128.199.42.67",
       "ref" : "origin/master",
-      "repo" : "https://github.com/recortable/rgcode.git",
+      "repo" : "https://github.com/ricardogomez/build.git",
       "path" : "~/ricardogomez.com/",
-      "post-deploy" : "npm --prefix ./server install ./server; pm2 startOrRestart ecosystem.json --env production"
+      "post-deploy" : "npm install; pm2 startOrRestart ecosystem.json --env production"
     }
   }
 }
