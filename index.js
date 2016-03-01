@@ -62,7 +62,7 @@ module.exports = function (locations) {
   .use(directives(processors))
   .use(partial({ directory: './templates/partials', engine: 'handlebars' }))
   .use(layouts({
-    pattern: '*.html',
+    pattern: '**/*.html',
     default: 'page.html', directory: 'templates', engine: 'handlebars' }))
   .use(permalinks({ relative: false }))
   .use(concat({ 'stylesheets/portada.css': { 'base': './stylesheets', 'files': ['portada.css', 'sections.css'] },
