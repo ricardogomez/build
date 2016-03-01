@@ -13,6 +13,7 @@ var includes = require('./plugins/includes')
 var directives = require('./plugins/directives')
 var processors = require('./processors')
 var concat = require('./plugins/concat')
+var portada = require('./plugins/portada')
 
 const META = {
   title: 'Ricardo Gómez',
@@ -49,23 +50,25 @@ module.exports = function (locations) {
   locations.destination = locations.destination || '../site/'
 
   return Metalsmith(locations.base)
-  .clean(false)
+  .clean(true)
   .source(locations.source)
   .destination(locations.destination)
   .concurrency(1000)
   .metadata(META)
-  .use(ignore(['.DS_Store']))
+  .use(ignore('.DS_Store'))
   .use(includes({ prefix: '!! incluye' }))
   .use(sections())
   .use(markdown())
   .use(directives(processors))
   .use(partial({ directory: './templates/partials', engine: 'handlebars' }))
-  .use(layouts({ default: 'page.html', directory: 'templates', engine: 'handlebars' }))
-  .use(permalinks())
-  .use(concat({
-    'stylesheets/portada.css': { 'base': './stylesheets', 'files': ['portada.css', 'sections.css'] },
+  .use(layouts({
+    pattern: '*.html',
+    default: 'page.html', directory: 'templates', engine: 'handlebars' }))
+  .use(permalinks({ relative: false }))
+  .use(concat({ 'stylesheets/portada.css': { 'base': './stylesheets', 'files': ['portada.css', 'sections.css'] },
     'stylesheets/all.css': { 'base': './stylesheets', 'files': ['reset.css', 'fonts.css', 'sections.css', 'page.css', 'article.css'] }
   }))
   .use(assets({ source: './assets', destination: '.' }))
+  .use(portada())
   .use(redirects({ file: 'redirects.txt' }))
 }
