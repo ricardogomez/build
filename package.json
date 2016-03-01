@@ -1,6 +1,6 @@
 {
   "description": "ricardogomez.com site builder",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "test": "mocha",
     "start": "node server.js",
@@ -23,6 +23,7 @@
     "metalsmith-partial": "^0.1.0",
     "metalsmith-permalinks": "^0.4.1",
     "minimatch": "^3.0.0",
-    "multer": "^1.1.0"
+    "multer": "^1.1.0",
+    "shelljs": "^0.6.0"
   }
 }
