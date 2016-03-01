@@ -24,6 +24,7 @@
     "metalsmith-permalinks": "^0.4.1",
     "minimatch": "^3.0.0",
     "multer": "^1.1.0",
-    "shelljs": "^0.6.0"
+    "shelljs": "^0.6.0",
+    "simple-git": "^1.26.2"
   }
 }
