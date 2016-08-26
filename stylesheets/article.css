@@ -9,10 +9,13 @@ hr {
     border-top: medium double #904830;
     color: #904830;
     text-align: center;
-    width: 100%;
+    width: auto;
 }
 
 .image-helper-position-ancho {
   float: none;
   width: 100%; clear: both;
+}
+.image-helper-position-izq {
+  max-width: 55%;
 }
